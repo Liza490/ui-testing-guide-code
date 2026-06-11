@@ -12,6 +12,7 @@ export default function Task({
       aria-label={`task-${id}`}
     >
       <label
+      
         htmlFor="checked"
         aria-label={`archiveTask-${id}`}
         className="checkbox"
@@ -50,7 +51,7 @@ export default function Task({
           aria-label={state === "TASK_PINNED" ? "unpin" : "pin"}
           key={`pinTask-${id}`}
         >
-          <span className={`icon-bell`} />
+          <span className={`icon-star`} />
         </button>
       )}
     </div>
