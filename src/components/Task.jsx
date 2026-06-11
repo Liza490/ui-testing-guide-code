@@ -4,6 +4,7 @@ export default function Task({
   onArchiveTask,
   onTogglePinTask,
   onEditTitle,
+  onDeleteTask,
 }) {
   return (
     <div
@@ -12,7 +13,6 @@ export default function Task({
       aria-label={`task-${id}`}
     >
       <label
-      
         htmlFor="checked"
         aria-label={`archiveTask-${id}`}
         className="checkbox"
@@ -42,7 +42,13 @@ export default function Task({
           onChange={(e) => onEditTitle(e.target.value, id)}
         />
       </label>
-
+      <button
+        aria-label="delete"
+        className="delete-button"
+        onClick={() => onDeleteTask(id)}
+      >
+        <span className="icon-trash" />
+      </button>
       {state !== "TASK_ARCHIVED" && (
         <button
           className="pin-button"
@@ -74,4 +80,6 @@ Task.propTypes = {
   onTogglePinTask: PropTypes.func.isRequired,
   /** Event to change the task title */
   onEditTitle: PropTypes.func.isRequired,
+  /** Event to delete the task */
+  onDeleteTask: PropTypes.func.isRequired,
 };
